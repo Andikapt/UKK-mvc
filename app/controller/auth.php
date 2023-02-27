@@ -21,4 +21,15 @@
             $this->view("auth/register");
             $this->view(templates/footer);
         }
+
+        public function login(){
+            if($_POST['username'] == 'admin' && $_POST['password'] == 'admin'){
+                header("Location: " . BASE_URL . "/admin");
+            } else{
+                $user = $this->model("User_model")->getUserByUsername($_POST['username']);
+                if($this->model("User_model")->authByUsername($_POST) > 0){
+                    
+                }
+            }
+        }
     }
