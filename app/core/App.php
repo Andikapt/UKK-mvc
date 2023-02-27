@@ -22,21 +22,21 @@ class App{
             $this->method = $url[1]; //untuk memasukan $url index value 1 ke method variable
             unset($url[1]); //untuk meng-unset si $url index value 1
         }
-    } if(!empty($url)){ //mengejek jika si $url valuenya tidak kosong dan menjalankan perintah dibawah ini
+    } 
+    
+    if(!empty($url)){ //mengejek jika si $url valuenya tidak kosong dan menjalankan perintah dibawah ini
         $this->params = array_values($url);
-    }
 
     call_user_func_array([$this->controller, $this->method], $this->params); // memanggil semua variable untuk dijalankan
     
-    }
+}
 
     public function parseUrl(){
         if(isset($_GET["url"])){ // Mengecek apakah $url ada atau tidak
             $url = rtrim($_GET["url"], "/"); // untuk menghapus "/" menjadi sebuah url saja
             $url = fillter_var($url, FILTER_SANITIZE_URL); //menghapus semua karakter kecuali tulisan, digit , dan lain lainnya
-            $
+            $url = explode("/" , $url); //explode fuction adalah untuk menghentikan string yang sudah mempunya function sebelumnya 
+            return $url;
         }
-    } 
-    
-    
+    }  
 }
