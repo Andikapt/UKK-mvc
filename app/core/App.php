@@ -24,7 +24,7 @@ class App{
         }
     } 
     
-    if(!empty($url)){ //mengejek jika si $url valuenya tidak kosong dan menjalankan perintah dibawah ini
+    if(!empty($url)){ //mengecek jika si $url valuenya tidak kosong dan menjalankan perintah dibawah ini
         $this->params = array_values($url);
 
     call_user_func_array([$this->controller, $this->method], $this->params); // memanggil semua variable untuk dijalankan
